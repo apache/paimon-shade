@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>paimon-shade-guava-30</artifactId>
-    <name>flink-shaded-guava-30</name>
+    <name>paimon-shade-guava-30</name>
     <version>${guava.version}-1.0</version>
 
     <packaging>jar</packaging>
