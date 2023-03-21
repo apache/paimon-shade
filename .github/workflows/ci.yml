@@ -21,7 +21,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      MVN_COMMON_OPTIONS: -U -B --no-transfer-progress -Pinclude-netty-tcnative-static
+      MVN_COMMON_OPTIONS: -U -B --no-transfer-progress
       MVN_BUILD_OUTPUT_FILE: "/tmp/mvn_build_output.out"
       MVN_VALIDATION_DIR: "/tmp/paimon-validation-deployment"
 
@@ -41,7 +41,6 @@ jobs:
 
           ./mvnw clean deploy ${{ env.MVN_COMMON_OPTIONS }} \
             -DaltDeploymentRepository=validation_repository::default::file:${{ env.MVN_VALIDATION_DIR }} \
-             -Plicense-check \
             | tee ${{ env.MVN_BUILD_OUTPUT_FILE }}
 
       - name: Check licensing
