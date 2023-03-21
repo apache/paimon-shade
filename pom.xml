@@ -62,8 +62,6 @@ under the License.
 
     <properties>
         <shading.prefix>org.apache.paimon.shade</shading.prefix>
-        <netty.version>4.1.82.Final</netty.version>
-        <jackson.version>2.13.4.20221013</jackson.version>
     </properties>
 
     <profiles>
