@@ -19,6 +19,7 @@
 package org.apache.paimon.tools.ci.utils.notice;
 
 import org.apache.paimon.tools.ci.utils.shared.Dependency;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

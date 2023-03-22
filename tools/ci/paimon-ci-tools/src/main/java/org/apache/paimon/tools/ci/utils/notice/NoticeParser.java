@@ -18,8 +18,9 @@
 
 package org.apache.paimon.tools.ci.utils.notice;
 
-import com.google.common.annotations.VisibleForTesting;
 import org.apache.paimon.tools.ci.utils.shared.Dependency;
+
+import com.google.common.annotations.VisibleForTesting;
 
 import java.io.IOException;
 import java.nio.file.Files;

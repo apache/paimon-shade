@@ -301,6 +301,35 @@ under the License.
                     </excludes>
                 </configuration>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>exec-maven-plugin</artifactId>-->
+<!--                <version>3.1.0</version>-->
+<!--                <inherited>false</inherited>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>check-license</id>-->
+<!--                        &lt;!&ndash; manually called &ndash;&gt;-->
+<!--                        <phase>none</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>java</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <mainClass>org.apache.paimon.tools.ci.licensecheck.LicenseChecker</mainClass>-->
+<!--                    <includePluginDependencies>true</includePluginDependencies>-->
+<!--                    <includeProjectDependencies>false</includeProjectDependencies>-->
+<!--                </configuration>-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>org.apache.paimon</groupId>-->
+<!--                        <artifactId>paimon-ci-tools</artifactId>-->
+<!--                        <version>${project.version}</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

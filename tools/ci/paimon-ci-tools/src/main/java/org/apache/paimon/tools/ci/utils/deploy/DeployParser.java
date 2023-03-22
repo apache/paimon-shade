@@ -18,8 +18,9 @@
 
 package org.apache.paimon.tools.ci.utils.deploy;
 
-import com.google.common.annotations.VisibleForTesting;
 import org.apache.paimon.tools.ci.utils.shared.ParserUtils;
+
+import com.google.common.annotations.VisibleForTesting;
 
 import java.io.File;
 import java.io.IOException;

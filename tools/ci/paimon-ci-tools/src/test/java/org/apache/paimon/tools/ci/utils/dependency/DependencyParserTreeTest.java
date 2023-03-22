@@ -19,6 +19,7 @@ package org.apache.paimon.tools.ci.utils.dependency;
 
 import org.apache.paimon.tools.ci.utils.shared.Dependency;
 import org.apache.paimon.tools.ci.utils.shared.DependencyTree;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;

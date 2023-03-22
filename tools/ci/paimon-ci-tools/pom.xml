@@ -38,9 +38,9 @@ under the License.
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.paimon</groupId>
-			<artifactId>paimon-shade-guava-30</artifactId>
-			<version>${guava.version}-${project.version}</version>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 
 		<dependency>

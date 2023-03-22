@@ -17,14 +17,19 @@
 
 package org.apache.paimon.tools.ci.utils.shade;
 
-import com.google.common.annotations.VisibleForTesting;
 import org.apache.paimon.tools.ci.utils.shared.Dependency;
 import org.apache.paimon.tools.ci.utils.shared.ParserUtils;
+
+import com.google.common.annotations.VisibleForTesting;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
