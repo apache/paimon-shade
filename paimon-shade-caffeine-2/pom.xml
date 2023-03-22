@@ -67,8 +67,8 @@ under the License.
                             </artifactSet>
                             <relocations>
                                 <relocation>
-                                    <pattern>com.github.ben-manes</pattern>
-                                    <shadedPattern>${shading.prefix}.caffeine2.com.github.ben-manes</shadedPattern>
+                                    <pattern>com.github.benmanes</pattern>
+                                    <shadedPattern>${shading.prefix}.caffeine2.com.github.benmanes</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

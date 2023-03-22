@@ -29,9 +29,6 @@ under the License.
     </parent>
 
     <artifactId>paimon-shade</artifactId>
-    <modules>
-        <module>paimon-shade-caffeine-2</module>
-    </modules>
     <groupId>org.apache.paimon</groupId>
     <name>paimon-shade</name>
     <version>1.0</version>
@@ -62,6 +59,10 @@ under the License.
             <url>${distMgmtSnapshotsUrl}</url>
         </pluginRepository>
     </pluginRepositories>
+
+    <modules>
+        <module>paimon-shade-caffeine-2</module>
+    </modules>
 
     <properties>
         <shading.prefix>org.apache.paimon.shade</shading.prefix>
