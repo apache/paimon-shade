@@ -62,6 +62,7 @@ under the License.
 
     <modules>
         <module>paimon-shade-guava-30</module>
+        <module>paimon-shade-jackson-parent</module>
     </modules>
 
     <properties>
