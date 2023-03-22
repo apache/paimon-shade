@@ -60,6 +60,10 @@ under the License.
         </pluginRepository>
     </pluginRepositories>
 
+    <modules>
+        <module>paimon-shade-jackson-parent</module>
+    </modules>
+
     <properties>
         <shading.prefix>org.apache.paimon.shade</shading.prefix>
     </properties>
