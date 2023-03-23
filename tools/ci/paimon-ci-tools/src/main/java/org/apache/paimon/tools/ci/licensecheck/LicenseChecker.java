@@ -33,7 +33,7 @@ public class LicenseChecker {
     public static void main(String[] args) throws Exception {
         if (args.length < 2) {
             System.out.println(
-                    "Usage: LicenseChecker <pathMavenBuildOutput> <pathFlinkRoot> <pathFlinkDeployed>");
+                    "Usage: LicenseChecker <pathMavenBuildOutput> <pathPaimonRoot> <pathPaimonDeployed>");
             System.exit(1);
         }
         LOG.warn(

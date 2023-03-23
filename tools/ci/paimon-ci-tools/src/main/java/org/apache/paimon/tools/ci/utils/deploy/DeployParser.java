@@ -38,11 +38,11 @@ public class DeployParser {
     // Examples:
     //
     // Deployment on CI with alternative repo
-    // [INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ flink-parent ---
-    // [INFO] Using alternate deployment repository.../tmp/flink-validation-deployment
+    // [INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ paimon-parent ---
+    // [INFO] Using alternate deployment repository.../tmp/paimon-validation-deployment
     //
     // Skipped deployment:
-    // [INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ flink-parent ---
+    // [INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ paimon-parent ---
     // [INFO] Skipping artifact deployment
     private static final Pattern DEPLOY_MODULE_PATTERN =
             Pattern.compile(

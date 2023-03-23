@@ -44,7 +44,7 @@ import java.util.stream.Stream;
 public class ScalaSuffixChecker {
     private static final Logger LOG = LoggerFactory.getLogger(ScalaSuffixChecker.class);
 
-    // [INFO] --- maven-dependency-plugin:3.1.1:tree (default-cli) @ flink-annotations ---
+    // [INFO] --- maven-dependency-plugin:3.1.1:tree (default-cli) @ paimon-annotations ---
     private static final Pattern moduleNamePattern =
             Pattern.compile(".* --- maven-dependency-plugin.* @ (.*) ---.*");
 
@@ -58,22 +58,16 @@ public class ScalaSuffixChecker {
 
     private static final Set<String> EXCLUDED_MODULES =
             new HashSet<>(
-                    Arrays.asList(
-                            // we ignore flink-rpc-akka because it is loaded through a separate
-                            // class loader
-                            "flink-rpc-akka",
-                            // we ignore flink-table-planner-loader because it loads the planner
-                            // through a different classpath
-                            "flink-table-planner-loader"));
+                    Arrays.asList());
 
     public static void main(String[] args) throws IOException {
         if (args.length < 2) {
-            System.out.println("Usage: ScalaSuffixChecker <pathMavenBuildOutput> <pathFlinkRoot>");
+            System.out.println("Usage: ScalaSuffixChecker <pathMavenBuildOutput> <pathPaimonRoot>");
             System.exit(1);
         }
 
         final Path mavenOutputPath = Paths.get(args[0]);
-        final Path flinkRootPath = Paths.get(args[1]);
+        final Path paimonRootPath = Paths.get(args[1]);
 
         final ParseResult parseResult = parseMavenOutput(mavenOutputPath);
         if (parseResult.getCleanModules().isEmpty()) {
@@ -85,7 +79,7 @@ public class ScalaSuffixChecker {
             System.exit(1);
         }
 
-        final Collection<String> violations = checkScalaSuffixes(parseResult, flinkRootPath);
+        final Collection<String> violations = checkScalaSuffixes(parseResult, paimonRootPath);
 
         if (!violations.isEmpty()) {
             LOG.error(
@@ -116,7 +110,6 @@ public class ScalaSuffixChecker {
             for (Dependency dependency : dependencies) {
                 final boolean dependsOnScala = dependsOnScala(dependency);
                 final boolean isTestDependency = dependency.getScope().get().equals("test");
-                // we ignored flink-rpc-akka because it is loaded through a separate class loader
                 final boolean isExcluded = isExcluded(dependency.getArtifactId());
                 LOG.trace("\tdependency:{}", dependency);
                 LOG.trace("\t\tdepends-on-scala:{}", dependsOnScala);
@@ -149,32 +142,32 @@ public class ScalaSuffixChecker {
     }
 
     private static Collection<String> checkScalaSuffixes(
-            final ParseResult parseResult, Path flinkRootPath) throws IOException {
+            final ParseResult parseResult, Path paimonRootPath) throws IOException {
         final Collection<String> violations = new ArrayList<>();
 
-        // exclude e2e modules and flink-docs for convenience as they
+        // exclude e2e modules and paimon-docs for convenience as they
         // a) are not deployed during a release
         // b) exist only for dev purposes
         // c) no-one should depend on them
         final Collection<String> excludedModules = new ArrayList<>();
-        excludedModules.add("flink-docs");
-        excludedModules.addAll(getEndToEndTestModules(flinkRootPath));
+        excludedModules.add("paimon-docs");
+        excludedModules.addAll(getEndToEndTestModules(paimonRootPath));
 
         for (String excludedModule : excludedModules) {
             parseResult.getCleanModules().remove(excludedModule);
             parseResult.getInfectedModules().remove(excludedModule);
         }
 
-        violations.addAll(checkCleanModules(parseResult.getCleanModules(), flinkRootPath));
-        violations.addAll(checkInfectedModules(parseResult.getInfectedModules(), flinkRootPath));
+        violations.addAll(checkCleanModules(parseResult.getCleanModules(), paimonRootPath));
+        violations.addAll(checkInfectedModules(parseResult.getInfectedModules(), paimonRootPath));
 
         return violations;
     }
 
-    private static Collection<String> getEndToEndTestModules(Path flinkRootPath)
+    private static Collection<String> getEndToEndTestModules(Path paimonRootPath)
             throws IOException {
         try (Stream<Path> pathStream =
-                Files.walk(flinkRootPath.resolve("flink-end-to-end-tests"), 5)) {
+                Files.walk(paimonRootPath.resolve("paimon-e2e-tests"), 5)) {
             return pathStream
                     .filter(path -> path.getFileName().toString().equals("pom.xml"))
                     .map(path -> path.getParent().getFileName().toString())
@@ -183,26 +176,26 @@ public class ScalaSuffixChecker {
     }
 
     private static Collection<String> checkCleanModules(
-            Collection<String> modules, Path flinkRootPath) throws IOException {
+            Collection<String> modules, Path paimonRootPath) throws IOException {
         return checkModules(
                 modules,
-                flinkRootPath,
+                paimonRootPath,
                 "_${scala.binary.version}",
                 "Scala-free module '%s' is referenced with scala suffix in '%s'.");
     }
 
     private static Collection<String> checkInfectedModules(
-            Collection<String> modules, Path flinkRootPath) throws IOException {
+            Collection<String> modules, Path paimonRootPath) throws IOException {
         return checkModules(
                 modules,
-                flinkRootPath,
+                paimonRootPath,
                 "",
                 "Scala-dependent module '%s' is referenced without scala suffix in '%s'.");
     }
 
     private static Collection<String> checkModules(
             Collection<String> modules,
-            Path flinkRootPath,
+            Path paimonRootPath,
             String moduleSuffix,
             String violationTemplate)
             throws IOException {
@@ -213,7 +206,7 @@ public class ScalaSuffixChecker {
         final Collection<String> violations = new ArrayList<>();
         for (String module : sortedModules) {
             int numPreviousViolations = violations.size();
-            try (Stream<Path> pathStream = Files.walk(flinkRootPath, 3)) {
+            try (Stream<Path> pathStream = Files.walk(paimonRootPath, 3)) {
                 final List<Path> pomFiles =
                         pathStream
                                 .filter(path -> path.getFileName().toString().equals("pom.xml"))
@@ -232,7 +225,7 @@ public class ScalaSuffixChecker {
                                     String.format(
                                             violationTemplate,
                                             module,
-                                            flinkRootPath.relativize(pomFile)));
+                                            paimonRootPath.relativize(pomFile)));
                         }
                     }
                 }

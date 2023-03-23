@@ -71,7 +71,7 @@ public class NoticeFileChecker {
     static int run(File buildResult, Path root) throws IOException {
         // parse included dependencies from build output
         final Map<String, Set<Dependency>> modulesWithBundledDependencies =
-                combineAndFilterFlinkDependencies(
+                combineAndFilterPaimonDependencies(
                         ShadeParser.parseShadeOutput(buildResult.toPath()),
                         DependencyParser.parseDependencyCopyOutput(buildResult.toPath()));
 
@@ -166,7 +166,7 @@ public class NoticeFileChecker {
         return severeIssueCount;
     }
 
-    private static Map<String, Set<Dependency>> combineAndFilterFlinkDependencies(
+    private static Map<String, Set<Dependency>> combineAndFilterPaimonDependencies(
             Map<String, Set<Dependency>> modulesWithBundledDependencies,
             Map<String, Set<Dependency>> modulesWithCopiedDependencies) {
 
@@ -182,7 +182,7 @@ public class NoticeFileChecker {
                                             entry.getKey(), ignored -> new LinkedHashSet<>());
 
                             for (Dependency dependency : entry.getValue()) {
-                                if (!dependency.getGroupId().contains("org.apache.flink")) {
+                                if (!dependency.getGroupId().contains("org.apache.paimon")) {
                                     dependencies.add(dependency);
                                 }
                             }
@@ -199,7 +199,7 @@ public class NoticeFileChecker {
         shadingModules.removeAll(modulesWithNoticeFile);
         for (String moduleWithoutNotice : shadingModules) {
             if (modulesWithShadedDependencies.get(moduleWithoutNotice).stream()
-                    .anyMatch(dependency -> !dependency.getGroupId().equals("org.apache.flink"))) {
+                    .anyMatch(dependency -> !dependency.getGroupId().equals("org.apache.paimon"))) {
                 LOG.error(
                         "Module {} is missing a NOTICE file. It has shaded dependencies: {}",
                         moduleWithoutNotice,
@@ -295,7 +295,7 @@ public class NoticeFileChecker {
                             .stream()
                             .filter(
                                     dependency ->
-                                            !dependency.getGroupId().equals("org.apache.flink"))
+                                            !dependency.getGroupId().equals("org.apache.paimon"))
                             .collect(Collectors.toList());
 
             for (Dependency expectedDependency : expectedDependencies) {

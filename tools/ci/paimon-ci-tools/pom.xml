@@ -26,6 +26,7 @@ under the License.
 		<groupId>org.apache.paimon</groupId>
 		<artifactId>paimon-shade</artifactId>
 		<version>1.0</version>
+		<relativePath>../../..</relativePath>
 	</parent>
 
 	<artifactId>paimon-ci-tools</artifactId>

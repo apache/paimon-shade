@@ -31,14 +31,14 @@ class ShadeParserTest {
 
     private static Stream<String> getTestDependencyCopy() {
         return Stream.of(
-                "[INFO] --- maven-shade-plugin:3.2.0:shade (shade-flink) @ m1 ---",
+                "[INFO] --- maven-shade-plugin:3.2.0:shade (shade-paimon) @ m1 ---",
                 "[INFO] Including external:dependency1:jar:2.1 in the shaded jar.",
                 "[INFO] Excluding external:dependency3:jar:2.3 from the shaded jar.",
                 "[INFO] Including external:dependency4:jar:classifier:2.4 in the shaded jar.",
                 "[INFO] Replacing original artifact with shaded artifact.",
                 "[INFO] Replacing /some/path/m1.jar with /some/path/m1-shaded.jar",
                 "[INFO]",
-                "[INFO] --- maven-shade-plugin:3.2.0:shade (shade-flink) @ m2 ---",
+                "[INFO] --- maven-shade-plugin:3.2.0:shade (shade-paimon) @ m2 ---",
                 "[INFO] Including internal:m1:jar:1.1 in the shaded jar.",
                 "[INFO] Replacing /some/path/m2.jar with /some/path/m2-shaded.jar");
     }

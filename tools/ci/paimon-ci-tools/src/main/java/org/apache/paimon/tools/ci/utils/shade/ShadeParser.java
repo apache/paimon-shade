@@ -39,7 +39,7 @@ public final class ShadeParser {
 
     private static final Pattern SHADE_NEXT_MODULE_PATTERN =
             Pattern.compile(
-                    ".*:shade \\((?:shade-flink|shade-dist|default)\\) @ (?<module>[^ _]+)(?:_[0-9.]+)? --.*");
+                    ".*:shade \\((?:shade-paimon|shade-dist|default)\\) @ (?<module>[^ _]+)(?:_[0-9.]+)? --.*");
 
     private static final Pattern SHADE_INCLUDE_MODULE_PATTERN =
             Pattern.compile(
@@ -57,7 +57,7 @@ public final class ShadeParser {
      *
      * <p>The returned dependencies will NEVER contain the scope or optional flag.
      *
-     * <p>This method only considers the {@code shade-flink} and {@code shade-dist} executions,
+     * <p>This method only considers the {@code shade-paimon} and {@code shade-dist} executions,
      * because all artifacts we produce that are either published or referenced are created by these
      * executions. In other words, all artifacts from other executions are only used internally by
      * the module that created them.

@@ -30,9 +30,9 @@ class DeployParserTest {
         assertThat(
                         DeployParser.parseDeployOutput(
                                 Stream.of(
-                                        "[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ flink-parent ---",
+                                        "[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ paimon-parent ---",
                                         "[INFO] ")))
-                .containsExactly("flink-parent");
+                .containsExactly("paimon-parent");
     }
 
     @Test
@@ -40,9 +40,9 @@ class DeployParserTest {
         assertThat(
                         DeployParser.parseDeployOutput(
                                 Stream.of(
-                                        "[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ flink-parent ---",
-                                        "[INFO] Using alternate deployment repository.../tmp/flink-validation-deployment")))
-                .containsExactly("flink-parent");
+                                        "[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ paimon-parent ---",
+                                        "[INFO] Using alternate deployment repository.../tmp/paimon-validation-deployment")))
+                .containsExactly("paimon-parent");
     }
 
     @Test
@@ -50,7 +50,7 @@ class DeployParserTest {
         assertThat(
                         DeployParser.parseDeployOutput(
                                 Stream.of(
-                                        "[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ flink-parent ---",
+                                        "[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ paimon-parent ---",
                                         "[INFO] Skipping artifact deployment")))
                 .isEmpty();
     }

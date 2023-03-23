@@ -39,7 +39,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Tests for the {@link JarFileChecker}.
  *
  * <p>For dev purposes, generate a deploy-directory with: mvn clean deploy
- * -DaltDeploymentRepository=snapshot-repo::default::file:/tmp/flink-deployment -DskipTests
+ * -DaltDeploymentRepository=snapshot-repo::default::file:/tmp/paimon-deployment -DskipTests
  * -Drat.skip and add a test checking that directory.
  */
 class JarFileCheckerTest {
@@ -310,7 +310,7 @@ class JarFileCheckerTest {
 
     private static final String VALID_NOTICE_CONTENTS =
             ""
-                    + "Flink : SomeModule\n"
+                    + "Paimon : SomeModule\n"
                     + "Copyright 2014-2020 The Apache Software Foundation\n"
                     + "\n"
                     + "This product includes software developed at\n"
