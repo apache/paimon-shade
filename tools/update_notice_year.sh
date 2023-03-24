@@ -34,7 +34,7 @@ NEW_YEAR=`date +'%Y'`
 
 for path in $(find "${PAIMON_SHADE_DIR}" -name "NOTICE*"); do
 	echo "Updating: ${path}"
-	sed "s/Copyright 2014-.* The Apache Software Foundation/Copyright 2023-${NEW_YEAR} The Apache Software Foundation/" "${path}" > "${path}_new"
+	sed "s/Copyright 2023-.* The Apache Software Foundation/Copyright 2023-${NEW_YEAR} The Apache Software Foundation/" "${path}" > "${path}_new"
 	mv "${path}_new" "${path}"
 done
 
