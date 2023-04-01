@@ -68,10 +68,10 @@ rsync -a \
   --exclude ".idea" --exclude "*.iml" --exclude ".DS_Store" \
   . paimon-shade-$RELEASE_VERSION
 
-tar czf paimon-shade-${RELEASE_VERSION}-src.tgz paimon-shade-$RELEASE_VERSION
-gpg --armor --detach-sig paimon-shade-$RELEASE_VERSION-src.tgz
-$SHASUM paimon-shade-$RELEASE_VERSION-src.tgz > paimon-shade-$RELEASE_VERSION-src.tgz.sha512
+tar czf apache-paimon-shade-incubating-${RELEASE_VERSION}-src.tgz paimon-shade-$RELEASE_VERSION
+gpg --armor --detach-sig apache-paimon-shade-incubating-$RELEASE_VERSION-src.tgz
+$SHASUM apache-paimon-shade-incubating-$RELEASE_VERSION-src.tgz > apache-paimon-shade-incubating-$RELEASE_VERSION-src.tgz.sha512
 
-mv paimon-shade-$RELEASE_VERSION-src.* ../
+mv apache-paimon-shade-incubating-$RELEASE_VERSION-src.* ../
 cd ..
 rm -rf paimon-shade-tmp-clone
