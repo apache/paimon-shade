@@ -31,7 +31,7 @@ under the License.
     <artifactId>paimon-shade</artifactId>
     <groupId>org.apache.paimon</groupId>
     <name>paimon-shade</name>
-    <version>1.0</version>
+    <version>0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <url>https://paimon.apache.org</url>
