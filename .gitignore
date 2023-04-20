@@ -4,3 +4,4 @@ target
 *.iml
 tools/release
 *.jar
+.DS_Store
