@@ -203,7 +203,7 @@ public class JarFileChecker {
                     .filter(path -> !getFileName(path).startsWith("notice"))
                     // dual-licensed under GPL 2 and CDDL 1.1
                     // contained in hadoop/presto S3 FS and paimon-dist
-                    .filter(path -> !pathStartsWith(path, "/META-INF/versions/11/javax/xml/bind"))
+                    .filter(path -> !path.toString().contains("/META-INF/versions/11/javax/xml/bind"))
                     .filter(path -> !isJavaxManifest(jar, path))
                     // dual-licensed under GPL 2 and EPL 2.0
                     // contained in sql-avro-confluent-registry
