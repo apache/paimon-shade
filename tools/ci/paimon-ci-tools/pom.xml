@@ -25,12 +25,12 @@ under the License.
 	<parent>
 		<groupId>org.apache.paimon</groupId>
 		<artifactId>paimon-shade</artifactId>
-		<version>0.4-SNAPSHOT</version>
+		<version>0.6-SNAPSHOT</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 
 	<artifactId>paimon-ci-tools</artifactId>
-	<version>0.4-SNAPSHOT</version>
+	<version>0.6-SNAPSHOT</version>
 	<name>Paimon : Tools : CI : Java</name>
 
 	<properties>
