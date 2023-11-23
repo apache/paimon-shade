@@ -64,7 +64,6 @@ under the License.
         <module>paimon-shade-guava-30</module>
         <module>paimon-shade-caffeine-2</module>
         <module>paimon-shade-jackson-parent</module>
-        <module>tools/ci/paimon-ci-tools</module>
     </modules>
 
     <properties>
@@ -330,7 +329,7 @@ under the License.
                     <dependency>
                         <groupId>org.apache.paimon</groupId>
                         <artifactId>paimon-ci-tools</artifactId>
-                        <version>${project.version}</version>
+                        <version>0.4.0-incubating</version>
                     </dependency>
                 </dependencies>
             </plugin>
