@@ -25,12 +25,12 @@ under the License.
     <parent>
         <groupId>org.apache.paimon</groupId>
         <artifactId>paimon-shade</artifactId>
-        <version>0.6-SNAPSHOT</version>
+        <version>0.7-SNAPSHOT</version>
     </parent>
 
     <artifactId>paimon-shade-netty-4</artifactId>
     <name>paimon-shade-netty-4</name>
-    <version>${netty.version}-0.6-SNAPSHOT</version>
+    <version>${netty.version}-0.7-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
