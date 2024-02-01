@@ -68,7 +68,7 @@ under the License.
     </modules>
 
     <properties>
-        <project.build.outputTimestamp>${maven.build.timestamp}</project.build.outputTimestamp>
+        <project.build.outputTimestamp>2024-01-23T10:56:20Z</project.build.outputTimestamp>
         <shading.prefix>org.apache.paimon.shade</shading.prefix>
 
         <guava.version>30.1.1-jre</guava.version>
