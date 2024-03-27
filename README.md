@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-# Apache Paimon (incubating) Shaded Dependencies
+# Apache Paimon Shaded Dependencies
 
 This repository contains a number of shaded dependencies for the [Apache Paimon](https://paimon.apache.org/) project.
 

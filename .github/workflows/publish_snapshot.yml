@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   publish-snapshot:
-    if: github.repository == 'apache/incubator-paimon-shade'
+    if: github.repository == 'apache/paimon-shade'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
