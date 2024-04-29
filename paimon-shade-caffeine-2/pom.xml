@@ -26,12 +26,12 @@ under the License.
     <parent>
         <groupId>org.apache.paimon</groupId>
         <artifactId>paimon-shade</artifactId>
-        <version>0.8-SNAPSHOT</version>
+        <version>0.8.0</version>
     </parent>
 
     <artifactId>paimon-shade-caffeine-2</artifactId>
     <name>paimon-shade-caffeine-2</name>
-    <version>${caffeine.version}-0.8-SNAPSHOT</version>
+    <version>${caffeine.version}-0.8.0</version>
 
     <packaging>jar</packaging>
 
