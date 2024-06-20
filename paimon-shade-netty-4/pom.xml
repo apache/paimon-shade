@@ -88,7 +88,7 @@ under the License.
                                     <mapper type="glob" from="libnetty*" to="liborg_apache_paimon_shade_netty4_netty*"/>
                                 </move>
                                 <echo message="repackaging netty jar" />
-                                <jar destfile="${project.build.directory}/${artifactId}-${version}.jar" basedir="${project.build.directory}/unpacked" />
+                                <jar destfile="${project.build.directory}/${artifactId}-${version}.jar" basedir="${project.build.directory}/unpacked" manifest="${project.build.directory}/unpacked/META-INF/MANIFEST.MF" />
                             </target>
                         </configuration>
                         <goals>
