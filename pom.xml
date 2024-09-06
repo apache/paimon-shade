@@ -63,6 +63,7 @@ under the License.
     <modules>
         <module>paimon-shade-guava-30</module>
         <module>paimon-shade-caffeine-2</module>
+        <module>paimon-shade-caffeine-3</module>
         <module>paimon-shade-jackson-parent</module>
         <module>paimon-shade-netty-4</module>
     </modules>
