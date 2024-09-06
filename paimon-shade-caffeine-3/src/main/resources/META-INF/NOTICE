@@ -6,4 +6,4 @@ The Apache Software Foundation (http://www.apache.org/).
 
 This project bundles the following dependencies under the Apache Software License 2.0 (http://www.apache.org/licenses/LICENSE-2.0.txt)
 
-- com.github.ben-manes.caffeine:caffeine:2.9.3
+- com.github.ben-manes.caffeine:caffeine:3.1.8
