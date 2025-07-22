@@ -66,6 +66,7 @@ under the License.
         <module>paimon-shade-caffeine-3</module>
         <module>paimon-shade-jackson-parent</module>
         <module>paimon-shade-netty-4</module>
+        <module>paimon-shade-apache-httpcomponents-5</module>
     </modules>
 
     <properties>
